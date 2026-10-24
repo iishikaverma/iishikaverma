@@ -1,8 +1,7 @@
 import { profile } from '../data/profile'
 import Reveal from './common/Reveal'
 
-// Final CTA. No form on purpose — a direct email link is lower-friction
-// and nothing to maintain. Add a form later only if you actually want one.
+// Final CTA. No form — a direct email link is lower-friction and nothing to maintain.
 function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-28 md:py-40">
@@ -22,7 +21,7 @@ function Contact() {
         <div className="mt-10">
           <a
             href={`mailto:${profile.email}`}
-            className="inline-block text-2xl font-medium text-bone underline decoration-line underline-offset-8 transition-colors hover:decoration-accent sm:text-3xl"
+            className="text-2xl font-medium text-bone underline decoration-line underline-offset-8 transition-colors hover:decoration-accent sm:text-3xl"
           >
             {profile.email}
           </a>

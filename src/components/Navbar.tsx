@@ -3,20 +3,32 @@ import { motion } from 'motion/react'
 
 // Section anchors — these ids must match the <section id="..."> in each component.
 const links = [
-  { label: 'Work', href: '#work' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Journey', href: '#journey' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Work', href: '#work', id: 'work' },
+  { label: 'About', href: '#about', id: 'about' },
+  { label: 'Skills', href: '#skills', id: 'skills' },
+  { label: 'Journey', href: '#journey', id: 'journey' },
+  { label: 'Contact', href: '#contact', id: 'contact' },
 ]
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState<string>('')
 
-  // Add a hairline + backdrop once the user scrolls past the hero top.
+  // One scroll handler: toggles the header hairline AND tracks the active
+  // section (the last one whose top has scrolled past ~35% of the viewport).
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 16)
+
+      const line = window.innerHeight * 0.35
+      let current = ''
+      for (const l of links) {
+        const el = document.getElementById(l.id)
+        if (el && el.getBoundingClientRect().top <= line) current = l.id
+      }
+      setActive(current)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -48,16 +60,29 @@ function Navbar() {
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-8 md:flex">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="font-mono text-xs uppercase tracking-wider text-muted transition-colors hover:text-bone"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {links.map((link) => {
+            const isActive = active === link.id
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  aria-current={isActive ? 'true' : undefined}
+                  className={`relative font-mono text-xs uppercase tracking-wider transition-colors hover:text-bone ${
+                    isActive ? 'text-bone' : 'text-muted'
+                  }`}
+                >
+                  {link.label}
+                  {/* active indicator */}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-active"
+                      className="absolute -bottom-1.5 left-0 h-px w-full bg-accent"
+                    />
+                  )}
+                </a>
+              </li>
+            )
+          })}
         </ul>
 
         {/* Mobile menu toggle */}
@@ -86,7 +111,9 @@ function Navbar() {
               <a
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="block py-3 font-mono text-sm uppercase tracking-wider text-muted transition-colors hover:text-bone"
+                className={`block py-3 font-mono text-sm uppercase tracking-wider transition-colors hover:text-bone ${
+                  active === link.id ? 'text-bone' : 'text-muted'
+                }`}
               >
                 {link.label}
               </a>

@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import { profile } from '../data/profile'
+import Magnetic from './common/Magnetic'
 
 // Stagger children so the hero reveals line-by-line on load.
 const container = {
@@ -60,15 +61,17 @@ function Hero() {
           variants={item}
           className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
         >
-          <a
-            href="#work"
-            className="group inline-flex items-center gap-2 rounded-md border border-accent px-5 py-3 font-mono text-sm text-accent transition-colors hover:bg-accent hover:text-ink"
-          >
-            View work
-            <span className="transition-transform duration-200 group-hover:translate-x-1">
-              {'→'}
-            </span>
-          </a>
+          <Magnetic>
+            <a
+              href="#work"
+              className="group inline-flex items-center gap-2 rounded-md border border-accent px-5 py-3 font-mono text-sm text-accent transition-colors hover:bg-accent hover:text-ink"
+            >
+              View work
+              <span className="transition-transform duration-200 group-hover:translate-x-1">
+                {'→'}
+              </span>
+            </a>
+          </Magnetic>
           <a
             href={profile.github}
             target="_blank"

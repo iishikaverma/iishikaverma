@@ -1,6 +1,9 @@
 // Project data kept separate from the UI. Edit copy/links here — components
 // just render whatever is in this list. `demo` and `image` are optional:
 // leave them out and the card shows a repo-only link + placeholder preview.
+import numerixImg from '../assets/numerix.jpg'
+import miniMatchImg from '../assets/mini-match.jpg'
+
 export type Project = {
   id: string
   name: string
@@ -34,7 +37,9 @@ export const projects: Project[] = [
     ],
     repo: 'https://github.com/iishikaverma/numerix-frontend',
     repoBackend: 'https://github.com/iishikaverma/numerix-backend',
-    // demo: 'TODO — add deployed URL',
+    demo: 'https://numerixsolver.vercel.app',
+    demoNote: 'The C++ backend sleeps when idle, so the first solve may take a few seconds to wake it.',
+    image: numerixImg,
   },
   {
     id: 'mini-match',
@@ -45,8 +50,8 @@ export const projects: Project[] = [
     concepts: ['REST API design', 'Candidate–job matching logic', 'Client–server data flow'],
     repo: 'https://github.com/iishikaverma/mini-match-frontend',
     repoBackend: 'https://github.com/iishikaverma/mini-match',
+    image: miniMatchImg,
     // ClinSight context lives in the Journey section instead of on the card.
     // tag: 'Built for ClinSight technical round',
-    // demo: 'TODO — add deployed URL if any',
   },
 ]

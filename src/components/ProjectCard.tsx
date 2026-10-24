@@ -13,13 +13,14 @@ function ProjectCard({
   flip: boolean
 }) {
   const number = String(index + 1).padStart(2, '0')
+  const primaryLink = project.demo ?? project.repo
 
   return (
     <Reveal>
-      <article className="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+      <article className="group grid items-center gap-8 md:grid-cols-2 md:gap-14">
         {/* Preview */}
         <div className={flip ? 'md:order-2' : ''}>
-          <div className="group relative aspect-video overflow-hidden rounded-xl border border-line bg-panel">
+          <div className="relative aspect-video overflow-hidden rounded-xl border border-line bg-panel transition-all duration-300 group-hover:-translate-y-1 group-hover:border-accent/40">
             {project.image ? (
               <img
                 src={project.image}
@@ -50,7 +51,20 @@ function ProjectCard({
             {number}
           </p>
           <h3 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            {project.name}
+            <a
+              href={primaryLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-3 transition-colors hover:text-accent"
+            >
+              {project.name}
+              <span
+                aria-hidden="true"
+                className="text-2xl text-dim transition-all duration-200 group-hover:translate-x-1 group-hover:text-accent"
+              >
+                {'↗'}
+              </span>
+            </a>
           </h3>
 
           {project.tag && (
