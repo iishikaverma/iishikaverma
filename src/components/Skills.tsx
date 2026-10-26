@@ -3,8 +3,8 @@ import Reveal from './common/Reveal'
 
 function Skills() {
   return (
-    <section id="skills" className="mx-auto max-w-6xl px-6 py-28 md:py-36">
-      <Reveal className="mb-16 md:mb-20">
+    <section id="skills" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <Reveal className="mb-10 md:mb-14">
         <p className="font-mono text-xs uppercase tracking-widest text-dim">
           04 — Skills
         </p>

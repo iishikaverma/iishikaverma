@@ -5,7 +5,7 @@ import portrait from '../assets/ishika.jpg'
 // To swap the photo, replace src/assets/ishika.jpg (or change the import).
 function About() {
   return (
-    <section id="about" className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+    <section id="about" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
       <Reveal className="mb-12 md:mb-16">
         <p className="font-mono text-xs uppercase tracking-widest text-dim">
           03 — About

@@ -4,8 +4,8 @@ import Reveal from './common/Reveal'
 
 function Projects() {
   return (
-    <section id="work" className="mx-auto max-w-6xl px-6 py-28 md:py-36">
-      <Reveal className="mb-16 md:mb-24">
+    <section id="work" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <Reveal className="mb-12 md:mb-16">
         <p className="font-mono text-xs uppercase tracking-widest text-dim">
           02 — Selected Work
         </p>
@@ -14,7 +14,7 @@ function Projects() {
         </h2>
       </Reveal>
 
-      <div className="space-y-24 md:space-y-36">
+      <div className="space-y-20 md:space-y-28">
         {projects.map((project, i) => (
           <ProjectCard
             key={project.id}

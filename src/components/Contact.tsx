@@ -4,7 +4,7 @@ import Reveal from './common/Reveal'
 // Final CTA. No form — a direct email link is lower-friction and nothing to maintain.
 function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-6xl px-6 py-28 md:py-40">
+    <section id="contact" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
       <Reveal>
         <p className="font-mono text-xs uppercase tracking-widest text-dim">
           06 — Contact
