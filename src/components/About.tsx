@@ -30,8 +30,10 @@ function About() {
             <p>
               I&rsquo;m a second-year CS student who learns by building. Most of
               what I know beyond coursework came from shipping real projects —{' '}
+              <span className="text-bone">ServeFlow</span>, a restaurant
+              point-of-sale app with a live dashboard and payments;{' '}
               <span className="text-bone">Numerix</span>, a numerical-methods
-              solver with a C++ engine and a React frontend, and{' '}
+              solver with a C++ engine; and{' '}
               <span className="text-bone">mini-match</span>, a full-stack
               job-matching app I built for an internship round.
             </p>
