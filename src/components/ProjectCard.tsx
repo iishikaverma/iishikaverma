@@ -18,31 +18,45 @@ function ProjectCard({
   return (
     <Reveal>
       <article className="group grid items-center gap-8 md:grid-cols-2 md:gap-14">
-        {/* Preview */}
+        {/* Preview — links to the live demo (or repo) with a hover overlay */}
         <div className={flip ? 'md:order-2' : ''}>
-          <div className="relative aspect-video overflow-hidden rounded-xl border border-line bg-panel transition-all duration-300 group-hover:-translate-y-1 group-hover:border-accent/40">
-            {project.image ? (
-              <img
-                src={project.image}
-                alt={`${project.name} screenshot`}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
-            ) : (
-              // Placeholder until a real screenshot is added — clearly not a photo.
-              <div
-                className="flex h-full w-full items-center justify-center"
-                style={{
-                  backgroundImage:
-                    'repeating-linear-gradient(135deg, #17171a, #17171a 10px, #141417 10px, #141417 20px)',
-                }}
-              >
-                <span className="font-mono text-xs uppercase tracking-widest text-dim">
-                  {project.name} — preview
+          <a
+            href={primaryLink}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Open ${project.name}${project.demo ? ' live demo' : ' on GitHub'}`}
+            className="block"
+          >
+            <div className="relative aspect-video overflow-hidden rounded-xl border border-line bg-panel transition-all duration-300 group-hover:-translate-y-1 group-hover:border-accent/40">
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={`${project.name} screenshot`}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              ) : (
+                // Placeholder until a real screenshot is added — clearly not a photo.
+                <div
+                  className="flex h-full w-full items-center justify-center"
+                  style={{
+                    backgroundImage:
+                      'repeating-linear-gradient(135deg, #17171a, #17171a 10px, #141417 10px, #141417 20px)',
+                  }}
+                >
+                  <span className="font-mono text-xs uppercase tracking-widest text-dim">
+                    {project.name} — preview
+                  </span>
+                </div>
+              )}
+              {/* fade-in overlay on hover */}
+              <div className="absolute inset-0 flex items-center justify-center bg-ink/55 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span className="rounded-md border border-accent bg-ink/70 px-4 py-2 font-mono text-sm text-accent">
+                  {project.demo ? 'View live ↗' : 'View code ↗'}
                 </span>
               </div>
-            )}
-          </div>
+            </div>
+          </a>
         </div>
 
         {/* Text */}

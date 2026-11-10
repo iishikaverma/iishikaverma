@@ -1,8 +1,21 @@
+import { useState } from 'react'
 import { profile } from '../data/profile'
 import Reveal from './common/Reveal'
 
 // Final CTA. No form — a direct email link is lower-friction and nothing to maintain.
 function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1600)
+    } catch {
+      // clipboard blocked — the mailto link still works
+    }
+  }
+
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
       <Reveal>
@@ -18,13 +31,21 @@ function Contact() {
           me is email.
         </p>
 
-        <div className="mt-10">
+        <div className="mt-10 flex flex-wrap items-center gap-4">
           <a
             href={`mailto:${profile.email}`}
             className="text-2xl font-medium text-bone underline decoration-line underline-offset-8 transition-colors hover:decoration-accent sm:text-3xl"
           >
             {profile.email}
           </a>
+          <button
+            type="button"
+            onClick={copyEmail}
+            aria-label="Copy email address"
+            className="rounded-md border border-line2 px-3 py-1.5 font-mono text-xs uppercase tracking-wider text-muted transition-colors hover:border-accent hover:text-accent"
+          >
+            {copied ? 'Copied ✓' : 'Copy'}
+          </button>
         </div>
 
         <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm">
