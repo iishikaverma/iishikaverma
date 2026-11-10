@@ -10,6 +10,7 @@ function About() {
         <p className="font-mono text-xs uppercase tracking-widest text-dim">
           03 — About
         </p>
+        <h2 className="sr-only">About</h2>
       </Reveal>
 
       <div className="grid gap-10 md:grid-cols-[260px_1fr] md:gap-16">
