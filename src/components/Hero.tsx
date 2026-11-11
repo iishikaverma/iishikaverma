@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import { profile } from '../data/profile'
 import Magnetic from './common/Magnetic'
+import RotatingText from './common/RotatingText'
 
 // Stagger children so the hero reveals line-by-line on load.
 const container = {
@@ -19,6 +20,18 @@ function Hero() {
       className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6"
     >
       <motion.div variants={container} initial="hidden" animate="show">
+        {/* Availability pill */}
+        <motion.div
+          variants={item}
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-line2 bg-panel/50 px-3 py-1.5 font-mono text-xs text-muted"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60 motion-reduce:animate-none" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+          </span>
+          Open to internships
+        </motion.div>
+
         {/* Eyebrow: name + title */}
         <motion.p
           variants={item}
@@ -46,6 +59,23 @@ function Hero() {
           </span>
           .
         </motion.h1>
+
+        {/* Rotating focus line (editorial serif + amber) */}
+        <motion.p
+          variants={item}
+          className="mt-5 text-xl text-muted sm:text-2xl"
+        >
+          <span className="font-serif italic text-bone">lately into</span>{' '}
+          <RotatingText
+            items={[
+              'full-stack web apps',
+              'REST APIs',
+              'clean, fast interfaces',
+              'things people use',
+            ]}
+            className="font-medium text-accent"
+          />
+        </motion.p>
 
         {/* Intro */}
         <motion.p

@@ -13,6 +13,7 @@
 
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-serif: "Fraunces Variable", Georgia, "Times New Roman", serif;
 }
 
 html {

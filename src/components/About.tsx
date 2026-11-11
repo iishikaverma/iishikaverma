@@ -1,6 +1,14 @@
 import Reveal from './common/Reveal'
 import portrait from '../assets/ishika.jpg'
 
+// Quick-facts shown under the bio — edit freely (add a city / languages if you like).
+const meta = [
+  { label: 'Currently', value: 'Building side projects' },
+  { label: 'Studying', value: '2nd-year B.Tech, Computer Science' },
+  { label: 'Focus', value: 'Full-stack web · Java' },
+  { label: 'Based in', value: 'India' },
+]
+
 // About copy lives here — edit the paragraphs directly.
 // To swap the photo, replace src/assets/ishika.jpg (or change the import).
 function About() {
@@ -42,6 +50,18 @@ function About() {
               I like the full loop: designing an API, wiring it to a frontend,
               and making the interface actually feel right.
             </p>
+
+            {/* Quick facts — edit the values in `meta` below */}
+            <dl className="grid grid-cols-1 gap-x-10 gap-y-5 border-t border-line pt-8 font-mono text-sm sm:grid-cols-2">
+              {meta.map((m) => (
+                <div key={m.label}>
+                  <dt className="text-xs uppercase tracking-wider text-dim">
+                    {m.label}
+                  </dt>
+                  <dd className="mt-1 text-bone">{m.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </Reveal>
       </div>

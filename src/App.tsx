@@ -1,5 +1,6 @@
 import Background from './components/common/Background'
 import BackToTop from './components/common/BackToTop'
+import IntroReveal from './components/common/IntroReveal'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
@@ -12,6 +13,7 @@ import Footer from './components/Footer'
 function App() {
   return (
     <>
+      <IntroReveal />
       {/* Keyboard users can jump straight to the content */}
       <a
         href="#work"
