@@ -18,8 +18,10 @@
 
 html {
   scroll-behavior: smooth;
-  /* leave room so anchored sections don't hide under the fixed navbar */
-  scroll-padding-top: 5rem;
+  /* Sections already carry enough top padding to clear the fixed navbar, so
+     only a small offset is needed — a large one double-counts and leaves a big
+     gap above the heading on anchor jumps. */
+  scroll-padding-top: 1rem;
 }
 
 body {
