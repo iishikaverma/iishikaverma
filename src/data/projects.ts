@@ -2,9 +2,9 @@
 // just render whatever is in this list. `demo` and `image` are optional:
 // leave them out and the card shows a repo-only link + placeholder preview.
 import serveflowImg from '../assets/serveflow.jpg'
+import crewoImg from '../assets/crewo.jpg'
 import numerixImg from '../assets/numerix.jpg'
 import pathgridImg from '../assets/pathgrid.jpg'
-import miniMatchImg from '../assets/mini-match.jpg'
 
 export type Project = {
   id: string
@@ -50,6 +50,31 @@ export const projects: Project[] = [
     image: serveflowImg,
   },
   {
+    id: 'crewo',
+    name: 'Crewo',
+    description:
+      'A full-stack app that matches students into hackathon and project teams by complementary skills, backed by real GitHub profiles. Post a need or browse a ranked people directory, request to join, and form your team.',
+    tech: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Prisma',
+      'PostgreSQL',
+      'Auth.js',
+    ],
+    concepts: [
+      'Skill-complementarity match scoring (0–100)',
+      'GitHub OAuth + profile enrichment',
+      'Ranked people directory with search',
+      'Join / connect request flows',
+      'Server actions on Postgres',
+    ],
+    repo: 'https://github.com/iishikaverma/Crewo',
+    demo: 'https://getcrewo.vercel.app',
+    image: crewoImg,
+  },
+  {
     id: 'numerix',
     name: 'Numerix',
     description:
@@ -85,18 +110,5 @@ export const projects: Project[] = [
     repo: 'https://github.com/iishikaverma/path-grid-frontend',
     demo: 'https://getpathgrid.vercel.app',
     image: pathgridImg,
-  },
-  {
-    id: 'mini-match',
-    name: 'mini-match',
-    description:
-      'A full-stack job–candidate matching app: a Node / Express / TypeScript API for listing jobs, adding candidates, and matching them, with a React + TypeScript frontend.',
-    tech: ['React', 'TypeScript', 'Tailwind CSS', 'axios', 'Node.js', 'Express'],
-    concepts: ['REST API design', 'Candidate–job matching logic', 'Client–server data flow'],
-    repo: 'https://github.com/iishikaverma/mini-match-frontend',
-    repoBackend: 'https://github.com/iishikaverma/mini-match',
-    image: miniMatchImg,
-    // ClinSight context lives in the Journey section instead of on the card.
-    // tag: 'Built for ClinSight technical round',
   },
 ]

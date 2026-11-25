@@ -43,8 +43,8 @@ function About() {
               point-of-sale app with a live dashboard and payments;{' '}
               <span className="text-bone">Numerix</span>, a numerical-methods
               solver with a C++ engine; and{' '}
-              <span className="text-bone">mini-match</span>, a full-stack
-              job-matching app I built for an internship round.
+              <span className="text-bone">Crewo</span>, a full-stack app that
+              matches students into project teams.
             </p>
             <p>
               I like the full loop: designing an API, wiring it to a frontend,
